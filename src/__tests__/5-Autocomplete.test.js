@@ -29,7 +29,7 @@ describe('Folder', ()=> {
   it('should eliminate names from dropdown as user types', async () => {
     const entry = screen.getByRole('textbox');
     userEvent.type(entry, 'B');
-    await waitFor(() => expect(screen.queryByText('Abba')).not.toBeInTheDocument());
+    expect(screen.queryByText('Abba')).not.toBeInTheDocument();
     expect(await screen.findByText('Barbara')).toBeInTheDocument();
     expect(await screen.findByText('Brenda')).toBeInTheDocument();
     userEvent.type(entry, 'a');
